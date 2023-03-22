@@ -1,0 +1,35 @@
+.new-medicine__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
+  .new-medicine__control label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #ccc;
+  }
+  
+  .new-medicine__control input {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 20rem;
+    max-width: 100%;
+  }
+  
+  .new-medicine__actions {
+    font: inherit;
+    cursor: pointer;
+    background-color: #8a0606;
+    border: 1px solid #678a06;
+    color: white;
+    padding: 0.25rem 2rem;
+    border-radius: 20px;
+    font-weight: bold;
+    text-align: right;
+  }
