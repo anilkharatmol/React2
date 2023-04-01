@@ -19,8 +19,36 @@ function submitHandler(event){
 
   setIsLoading(true);
   if(isLogin){
-
+    fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBwXOwAnBdsjBSzz1ZdEKkrlHZWgkiUiC8',
+    {
+      method:'POST',
+      body:JSON.stringify({
+        email:enteredEmail,
+        password:enteredPassword,
+        returnSecureToken:true
+      }),
+        headers:{
+          'Content-Type':'application/json'
+      }
+    }).then(response=>{
+      setIsLoading(false);
+      if(response.ok){
+         return response.json();
+      }
+      else{
+        return response.json().then(data=>{
+        let errormessage='Authentication Failed!'
+        if(data && data.error && data.error.message)
+        {
+          errormessage=data.error.message;
+        }  
+        throw new Error(errormessage);
+        })
+      }
+    }).then(data=>{ console.log(data);}).catch(err=>{alert(err.message)})
   }
+
+
   else{
     fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBwXOwAnBdsjBSzz1ZdEKkrlHZWgkiUiC8',
     {
