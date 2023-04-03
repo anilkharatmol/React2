@@ -1,11 +1,13 @@
 import "./App.css";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import React, { useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import Cart from "./Components/Cart/Cart";
 import CartProvider from "./Store/CartProvider";
 import Item from "./Components/Item";
 import CartButton from "./Components/Cart/CartButton";
+import { useContext } from "react";
+import AuthContext from "./Store/LoginContext";
 
 export default function Root() {
   const productsArr = [
@@ -50,6 +52,8 @@ export default function Root() {
     },
   ];
 
+  const authcxt=useContext(AuthContext);
+
   const item = productsArr.map((item) => (
     <Item
       key={item.id}
@@ -86,7 +90,6 @@ export default function Root() {
             </NavLink>
           </li>
           <li>
-            {" "}
             <NavLink className={() => "list"} to="/about">
               About
             </NavLink>
@@ -94,6 +97,11 @@ export default function Root() {
           <li>
             <NavLink className={() => "list"} to="/contactus">
               Contact Us
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className={() => "list"} to="/login">
+              Login
             </NavLink>
           </li>
           <li>
@@ -115,8 +123,9 @@ export default function Root() {
       >
         The Generics
       </h1>
-      <h3 style={{ textAlign: "center" }}>Music</h3>
-      <Container className="mb-2">{item}</Container>
+      <h3 style={{ textAlign: "center" ,fontFamily:'fantasy'}}>Products</h3>
+      <Container className="mb-2">{ authcxt.isLoggedIn && item}
+      {!authcxt.isLoggedIn && <h1 style={{textAlign:'center',color:'red'}}>Login to see Products</h1>}</Container>
       <Button
         variant="info"
         style={{ marginLeft: "15cm", marginBottom: "1cm" }}
@@ -133,7 +142,6 @@ export default function Root() {
       >
         <h1>The Generics</h1>
       </footer>
-      <Outlet />
     </CartProvider>
   );
 }

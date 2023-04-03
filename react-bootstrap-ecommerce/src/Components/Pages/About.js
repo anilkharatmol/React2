@@ -12,11 +12,7 @@ export default function About(){
         <li ><NavLink className={()=>"list"} to='/home'>Home</NavLink></li>
         <li ><NavLink className={()=>"list"} to='/'>Store</NavLink></li>
         <li> <NavLink className={()=>"list"} to='/about'>About</NavLink></li>
-        <li>
-            <NavLink className={() => "list"} to="/contactus">
-              Contact Us
-            </NavLink>
-          </li>
+        <li> <NavLink className={() => "list"} to="/contactus">    Contact Us      </NavLink></li>
         </ul>
      </header>
              <h1 style={{textAlign:"center",fontFamily:'-moz-initial',fontWeight:'bold', backgroundColor:"grey",color:"white",fontSize:'150px',padding:'40px'}}>
