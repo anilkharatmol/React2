@@ -60,7 +60,7 @@ function submitHandler(event){
         throw new Error(errormessage);
         })
       }
-    }).then((data)=>{ authcxt.login(data.idToken) 
+    }).then((data)=>{ authcxt.login(data.idToken) ; setTimeout(()=>{authcxt.logout(); history.replace('/auth')},300000)
     history.replace('/') }).catch(err=>{alert(err.message)})
   
 
