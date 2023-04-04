@@ -107,6 +107,7 @@ export default function Root() {
           <li>
             <CartButton onClick={onShow}></CartButton>
           </li>
+          <li><Button style={{marginLeft:'1cm'}} variant="danger"  onClick={authcxt.logout}>Logout</Button></li>
         </ul>
       </header>
       {showCart && <Cart onHide={hideCart}> </Cart>}
@@ -124,8 +125,7 @@ export default function Root() {
         The Generics
       </h1>
       <h3 style={{ textAlign: "center" ,fontFamily:'fantasy'}}>Products</h3>
-      <Container className="mb-2">{ authcxt.isLoggedIn && item}
-      {!authcxt.isLoggedIn && <h1 style={{textAlign:'center',color:'red'}}>Login to see Products</h1>}</Container>
+      <Container className="mb-2">{item}</Container>
       <Button
         variant="info"
         style={{ marginLeft: "15cm", marginBottom: "1cm" }}

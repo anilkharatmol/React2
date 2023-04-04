@@ -1,23 +1,21 @@
-import { Switch,Route } from "react-router-dom";
+import { Switch,Route, Redirect } from "react-router-dom";
 import About from "./Components/Pages/About";
 import Root from "./Root";
 import Home from "./Components/Pages/Home";
 import ContactUS from "./Components/Pages/ContactUs";
 import ProductDetails from "./Components/Pages/ProductDetails";
 import Login from "./Components/Pages/Login";
+import { useContext } from "react";
+import AuthContext from "./Store/LoginContext";
 
-//  const router=createBrowserRouter([
-//   {path:'/main',element:<Root/>},{path:'/about',element:<About/>},{path:'/',element:<Login/> },
-//   {path:'/home',element:<Home/>},{path:'/contactus',element:<ContactUS/>},
-//   {path:'/productdetails/:productname',element:<ProductDetails/>}
-// ]);
 
 const App=()=> {
-
+const authcxt=useContext(AuthContext)
   return (
   <Switch>
       <Route path='/' exact>
-     <Root/>
+     {authcxt.isLoggedIn && <Root/>}
+     {!authcxt.isLoggedIn && <Redirect to='/login'></Redirect>}
     </Route>
   <Route path='/about'>
     <About/>
