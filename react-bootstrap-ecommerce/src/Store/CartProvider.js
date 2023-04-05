@@ -6,7 +6,7 @@ export default function CartProvider(props){
 
     const [items,updateItems]=useState([]);
 
-    function addItemToCartHandler(item){
+   async function addItemToCartHandler(item){
 
             const existingItemIdx = items.findIndex(i => i.id === item.id);
           
@@ -17,7 +17,18 @@ export default function CartProvider(props){
               temp[existingItemIdx].quantity =temp[existingItemIdx].quantity + 1;
               updateItems(temp);
             }
-          
+       
+              await fetch('https://crudcrud.com/api/7f7e542e452d4d04835c52cc0717fba3/cartakharatmol8gmailcom',{
+                 method:'POST',
+                 body:JSON.stringify(item),
+                 headers:{
+                   'Content-type':'application/json'
+                 }
+               })
+              //  const data=await response.json();
+              //    console.log(data);
+                
+               
     }
 
     function removeItemFromCartHAndler(item){
