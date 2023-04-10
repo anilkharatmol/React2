@@ -1,0 +1,35 @@
+.new-candie__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
+  .new-candie__control label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #0b0505;
+  }
+  
+  .new-candie__control input {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 20rem;
+    max-width: 100%;
+  }
+  
+  .new-candie__actions {
+    font: inherit;
+    cursor: pointer;
+    background-color: #06e86f;
+    border: 1px solid #090909;
+    color: rgb(13, 1, 1);
+    padding: 0.25rem 2rem;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-left: 1cm;
+  }
